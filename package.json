@@ -1,0 +1,29 @@
+{
+  "name": "sherby-metadata",
+  "version": "1.0.0",
+  "description": "Manage meta tags for Search Engine Optimization (SEO)",
+  "author": "Benjamin Rancourt",
+  "license": "MIT",
+  "repository": "SherbyElements/sherby-metadata",
+  "bugs": {
+    "url": "https://github.com/SherbyElements/sherby-metadata/issues"
+  },
+  "homepage": "https://github.com/SherbyElements/sherby-metadata",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "polymer-cli": "^1.4.1"
+  },
+  "keywords": [
+    "description",
+    "keywords",
+    "meta-tags",
+    "meta",
+    "metadata",
+    "open-graph",
+    "polymer",
+    "seo",
+    "sherby",
+    "title",
+    "webcomponents"
+  ]
+}
