@@ -11,27 +11,33 @@ elements to the `<head>` section based on the JSON object passed to it.
 To use this element, add the import to your shell component and include it
 in your component code.
 
-    <sherby-metadata data="[[data]]"></sherby-metadata>
+```html
+<sherby-metadata data="[[data]]"></sherby-metadata>
+```
 
 To update your meta tags data, you can update his data property in your shell
 component:
 
-    this.data = {
-      title: 'This is the page title',
-      description: 'This is the page description',
-      keywords: 'these,are,keywords'
-    };
+```javascript
+this.data = {
+  title: 'This is the page title',
+  description: 'This is the page description',
+  keywords: 'these,are,keywords'
+};
+```
 
 Alternatively, after the `sherby-metadata` is include in your shell component,
 you can dispatch a `sherby-metadata` event:
 
-    this.dispatchEvent(new CustomEvent('sherby-metadata', {
-      detail: {
-        title: 'This is the page title',
-        description: 'This is the page description',
-        keywords: 'these,are,keywords'
-      }
-    }));
+```javascript
+this.dispatchEvent(new CustomEvent('sherby-metadata', {
+  detail: {
+    title: 'This is the page title',
+    description: 'This is the page description',
+    keywords: 'these,are,keywords'
+  }
+}));
+```
 
 This component support also the `OpenGraph` tags.
 
