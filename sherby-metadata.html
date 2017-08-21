@@ -47,7 +47,7 @@ This component support also the `OpenGraph` tags.
       /**
       * Return the HTML tag name.
       * @static
-      * @returns {String} HTML tag name.
+      * @return {String} HTML tag name.
       */
       static get is() {
         return 'sherby-metadata';
@@ -56,7 +56,7 @@ This component support also the `OpenGraph` tags.
       /**
       * Return the properties.
       * @static
-      * @returns {Object} Properties.
+      * @return {Object} Properties.
       */
       static get properties() {
         return {
@@ -69,7 +69,7 @@ This component support also the `OpenGraph` tags.
           data: {
             observer: '_dataChanged',
             type: Object,
-            value: () => ({})
+            value: () => ({}),
           },
 
           /**
@@ -78,7 +78,7 @@ This component support also the `OpenGraph` tags.
            */
           _metaElements: {
             type: Object,
-            value: () => ({})
+            value: () => ({}),
           },
 
           /**
@@ -86,7 +86,7 @@ This component support also the `OpenGraph` tags.
           * @private
           */
           __metadataEventListener: {
-            type: Function
+            type: Function,
           },
         };
       }
@@ -111,7 +111,6 @@ This component support also the `OpenGraph` tags.
 
         Polymer.RenderStatus.afterNextRender(this, () => {
           window.addEventListener('sherby-metadata', this.__metadataEventListener);
-          console.log('sherby-metadata', 'is install');
         });
       }
 

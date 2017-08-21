@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <title>sherby-metadata test</title>
@@ -28,10 +28,10 @@
 
       test('sets meta tags when we set meta data', () => {
         meta.data = {
+          'description': 'Description from data',
           'og:description': 'Description from data (OpenGraph)',
           'og:title': 'Title from data (OpenGraph)',
-          description: 'Description from data',
-          title: 'Title from data',
+          'title': 'Title from data',
         };
 
         const d = document.querySelector('meta[name="description"]');
@@ -48,11 +48,11 @@
         const event = new CustomEvent('sherby-metadata', {
           bubbles: true,
           detail: {
+            'description': 'Description from event',
             'og:description': 'Description from event (OpenGraph)',
             'og:title': 'Title from event (OpenGraph)',
-            description: 'Description from event',
-            title: 'Title from event',
-          }
+            'title': 'Title from event',
+          },
         });
 
         sinon.spy(meta, '_dataChanged');
@@ -66,7 +66,7 @@
           const od = document.querySelector('meta[property="og:description"]');
           const ot = document.querySelector('meta[property="og:title"]');
 
-          assert.equal(d.content, 'Description from event');;
+          assert.equal(d.content, 'Description from event');
           assert.equal(document.title, 'Title from event');
           assert.equal(od.content, 'Description from event (OpenGraph)');
           assert.equal(ot.content, 'Title from event (OpenGraph)');
