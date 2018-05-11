@@ -1,7 +1,7 @@
 {
   "name": "@sherby/sherby-metadata",
   "flat": true,
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "description": "Manage meta tags for Search Engine Optimization (SEO)",
   "contributors": [
     "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>"
