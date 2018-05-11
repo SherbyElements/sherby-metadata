@@ -3,10 +3,24 @@
 
 ## \<sherby-metadata\>
 
-`sherby-metadata` is a Polymer 3 element used to manage meta tags data for 
+`sherby-metadata` is a **Polymer 3** element used to manage meta tags data for 
 Search Engine Optimization (SEO). It will add, update and remove `<meta>` 
 elements to the `<head>` section based on the JSON object passed to it.
 
+## Installation
+As Polymer 3 use npm, you must use it to install this component:
+
+```bash
+npm install @sherby/sherby-metadata
+```
+
+For the **Polymer 2** version, use the `SherbyElements/sherby-metadata#^v1.0.0` inside your bower.json file.
+
+```bash
+bower install SherbyElements/sherby-metadata --save
+```
+
+## Use
 To use this element, add the import to your shell component and include it
 in your component code.
 
