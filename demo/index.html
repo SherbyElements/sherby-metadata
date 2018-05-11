@@ -2,38 +2,44 @@
 <html>
 
 <head lang="en">
-  <title>sherby-metadata demo</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <title>sherby-metadata demo</title>
 
-  <link rel="import" href="../sherby-metadata.html">
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+
+  <script type="module" src="../sherby-metadata.js"></script>
 
   <custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles"></style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
   </custom-style>
 </head>
 
 <body>
   <div class="vertical-section-container centered">
     <h1>&lt;sherby-metadata&gt;</h1>
-    <p><b>Warning</b>: as this demo is included into an iframe, you need to look
+    <p>
+      <b>Warning</b>: as this demo is included into an iframe, you need to look
       <b>inside</b> the head iframe to see that the meta tags data are changed after you have clicked on the buttons.</p>
 
     <demo-snippet>
-      <p>Include the <b>sherby-metadata</b> component in your shell component.</p>
+      <p>Include the
+        <b>sherby-metadata</b> component in your shell component.</p>
       <template>
-        <sherby-metadata id="metadata" data="[[data]]"></sherby-metadata>
+        <sherby-metadata id="metadata" data$="[[data]]"></sherby-metadata>
       </template>
     </demo-snippet>
   </div>
 
   <div class="vertical-section-container centered">
     <demo-snippet>
-      <p>Set the data attribute to your <b>sherby-metadata</b> component.</p>
+      <p>Set the data attribute to your
+        <b>sherby-metadata</b> component.</p>
       <template>
         <button onclick="setMetadata()">Update meta tags data</button>
       </template>
@@ -42,7 +48,8 @@
 
   <div class="vertical-section-container centered">
     <demo-snippet>
-      <p>Dispatch the <b>sherby-metadata</b> event.</p>
+      <p>Dispatch the
+        <b>sherby-metadata</b> event.</p>
       <template>
         <button onclick="dispatchSherbyEvent()">Update meta tags data</button>
       </template>
@@ -55,7 +62,7 @@
     * @public
     */
     function setMetadata() { // eslint-disable-line no-unused-vars
-      let meta = document.getElementById('metadata');
+      const meta = document.getElementById('metadata');
       meta.data = {
         description: 'A Polymer element to manage page meta tags for SEO',
         keywords: 'polymer,element,meta,tags,page,SEO,search engine optimization',

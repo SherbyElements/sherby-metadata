@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-  <title>sherby-metadata test</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <link rel="import" href="../sherby-metadata.html">
+  <title>sherby-metadata test</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+  <script type="module" src="../sherby-metadata.js"></script>
 </head>
 
 <body>
@@ -18,7 +20,9 @@
     </template>
   </test-fixture>
 
-  <script>
+  <script type="module">
+    import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+    
     suite('sherby-metadata', () => {
       let meta;
 
@@ -57,7 +61,7 @@
 
         sinon.spy(meta, '_dataChanged');
 
-        Polymer.RenderStatus.afterNextRender(this, () => {
+        afterNextRender(window, () => {
           window.dispatchEvent(event);
 
           expect(meta._dataChanged.callCount).to.be.equal(1);

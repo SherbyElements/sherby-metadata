@@ -1,13 +1,26 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/SherbyElements/sherby-metadata)
-![Polymer 2 supported](https://img.shields.io/badge/Polymer%202-supported-blue.svg)
 [![Build status](https://travis-ci.org/SherbyElements/sherby-metadata.svg?branch=master)](https://travis-ci.org/SherbyElements/sherby-metadata)
 
-## &lt;sherby-metadata&gt;
+## \<sherby-metadata\>
 
-`sherby-metadata` is a Polymer 2 element used to manage meta tags data for 
+`sherby-metadata` is a **Polymer 3** element used to manage meta tags data for 
 Search Engine Optimization (SEO). It will add, update and remove `<meta>` 
 elements to the `<head>` section based on the JSON object passed to it.
 
+## Installation
+As Polymer 3 use npm, you must use it to install this component:
+
+```bash
+npm install @sherby/sherby-metadata
+```
+
+For the **Polymer 2** version, use the `SherbyElements/sherby-metadata#^v1.0.0` inside your bower.json file.
+
+```bash
+bower install SherbyElements/sherby-metadata --save
+```
+
+## Use
 To use this element, add the import to your shell component and include it
 in your component code.
 
@@ -20,9 +33,9 @@ component:
 
 ```javascript
 this.data = {
-  title: 'This is the page title',
   description: 'This is the page description',
-  keywords: 'these,are,keywords'
+  keywords: 'these,are,keywords',
+  title: 'This is the page title',
 };
 ```
 
@@ -32,10 +45,10 @@ you can dispatch a `sherby-metadata` event:
 ```javascript
 this.dispatchEvent(new CustomEvent('sherby-metadata', {
   detail: {
-    title: 'This is the page title',
     description: 'This is the page description',
-    keywords: 'these,are,keywords'
-  }
+    keywords: 'these,are,keywords',
+    title: 'This is the page title',
+  },
 }));
 ```
 
