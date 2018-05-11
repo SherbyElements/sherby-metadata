@@ -2,18 +2,18 @@ import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 
 /**
-* `sherby-metadata` is a Polymer 2 element used to manage meta tags data for 
-* Search Engine Optimization (SEO). It will add, update and remove `<meta>` 
+* `sherby-metadata` is a Polymer 2 element used to manage meta tags data for
+* Search Engine Optimization (SEO). It will add, update and remove `<meta>`
 * elements to the `<head>` section based on the JSON object passed to it.
-* 
+*
 * To use this element, add the import to your shell component and include it
 * in your component code.
-* 
+*
 *     <sherby-metadata data="[[data]]"></sherby-metadata>
-* 
+*
 * To update your meta tags data, you can update his data property in your shell
 * component:
-* 
+*
 *   this.data = {
 *     title: 'This is the page title',
 *     description: 'This is the page description',
@@ -22,7 +22,7 @@ import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 *
 * Alternatively, after the `sherby-metadata` is include in your shell component,
 * you can dispatch a `sherby-metadata` event:
-* 
+*
 *   this.dispatchEvent(new CustomEvent('sherby-metadata', {
 *     detail: {
 *       description: 'This is the page description',
@@ -30,9 +30,9 @@ import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 *       title: 'This is the page title',
 *     }
 *   }));
-* 
+*
 * This component support also the `OpenGraph` tags.
-* 
+*
 * @customElement
 * @extends {PolymerElement}
 * @polymer
