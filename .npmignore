@@ -1,0 +1,7 @@
+.editorconfig
+.eslintrc.js
+.travis.yml
+.vscode
+demo
+node_modules
+test
