@@ -1,11 +1,9 @@
 {
   "name": "@sherby/sherby-metadata",
   "flat": true,
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "Manage meta tags for Search Engine Optimization (SEO)",
-  "contributors": [
-    "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>"
-  ],
+  "author": "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>",
   "scripts": {
     "format": "npm-run-all format:*",
     "format:js": "eslint . --ext js --fix",
@@ -35,7 +33,10 @@
   "main": "sherby-metadata.html",
   "repository": {
     "type": "git",
-    "url": "git://github.com/github.com/SherbyElements/sherby-metadata.git"
+    "url": "https://github.com/SherbyElements/sherby-metadata.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SherbyElements/sherby-metadata/issues"
   },
   "license": "MIT",
   "homepage": "https://github.com/SherbyElements/sherby-metadata",
