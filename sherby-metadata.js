@@ -1,15 +1,14 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import { LitElement, html } from 'lit-element';
 
 /**
-* `sherby-metadata` is a Polymer 2 element used to manage meta tags data for
+* `sherby-metadata` is a LitElement used to manage meta tags data for
 * Search Engine Optimization (SEO). It will add, update and remove `<meta>`
 * elements to the `<head>` section based on the JSON object passed to it.
 *
 * To use this element, add the import to your shell component and include it
 * in your component code.
 *
-*     <sherby-metadata data="[[data]]"></sherby-metadata>
+*     <sherby-metadata .data=${data}></sherby-metadata>
 *
 * To update your meta tags data, you can update his data property in your shell
 * component:
@@ -34,12 +33,11 @@ import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 * This component support also the `OpenGraph` tags.
 *
 * @customElement
-* @extends {PolymerElement}
-* @polymer
+* @extends {LitElement}
 * @group SherbyElements
 * @demo demo/index.html
 */
-class SherbyMetadata extends PolymerElement {
+class SherbyMetadata extends LitElement {
   /**
   * Return the properties.
   * @static
@@ -54,28 +52,13 @@ class SherbyMetadata extends PolymerElement {
       * @public
       */
       data: {
-        observer: '_dataChanged',
         type: Object,
-        value: () => ({}),
-      },
-
-      /**
-       * Object to keep track of meta elements so they can be reused.
-       * @protected
-       */
-      _metaElements: {
-        type: Object,
-        value: () => ({}),
-      },
-
-      /**
-      * Metadata event listener.
-      * @private
-      */
-      __metadataEventListener: {
-        type: Function,
       },
     };
+  }
+
+  render() {
+    return html``;
   }
 
   /**
@@ -85,7 +68,14 @@ class SherbyMetadata extends PolymerElement {
   constructor() {
     super();
 
+    this.data = {};
+
+    // Object to keep track of meta elements so they can be reused
+    this._metaElements = {};
+
+    // Metadata event listener
     this.__metadataEventListener = this._onMetadataEvent.bind(this);
+
     this._initializeMetaElements();
   }
 
@@ -95,10 +85,7 @@ class SherbyMetadata extends PolymerElement {
   */
   connectedCallback() {
     super.connectedCallback();
-
-    afterNextRender(this, () => {
-      window.addEventListener('sherby-metadata', this.__metadataEventListener);
-    });
+    window.addEventListener('sherby-metadata', this.__metadataEventListener);
   }
 
   /**
@@ -113,9 +100,17 @@ class SherbyMetadata extends PolymerElement {
   /**
    * Update the DOM when the data changes.
    * @protected
-   * @param {Object} data Data.
+   * @param {Object} changedProperties Changed properties.
    */
-  _dataChanged(data) {
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (!changedProperties.has('data')) {
+      return;
+    }
+
+    const data = this.data;
+
     // For each key in data
     for (const name in data) {
       // Continue if it's not a direct property

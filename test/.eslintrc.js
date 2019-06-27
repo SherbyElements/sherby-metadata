@@ -8,6 +8,5 @@ module.exports = {
     expect: false,
     fixture: false,
     sinon: false,
-    WCT: false
   },
 };
