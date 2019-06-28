@@ -105,6 +105,7 @@ class SherbyMetadata extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
+    /* istanbul ignore if */
     if (!changedProperties.has('data')) {
       return;
     }
@@ -114,7 +115,7 @@ class SherbyMetadata extends LitElement {
     // For each key in data
     for (const name in data) {
       // Continue if it's not a direct property
-      if (!data.hasOwnProperty(name)) {
+      if (!Object.prototype.hasOwnProperty.call(data, name)) {
         continue;
       }
 
@@ -125,7 +126,7 @@ class SherbyMetadata extends LitElement {
       }
 
       // Do we have this meta element?
-      if (this._metaElements.hasOwnProperty(name)) {
+      if (Object.prototype.hasOwnProperty.call(this._metaElements, name)) {
         // Update the content if it is defined
         if (data[name]) {
           this._metaElements[name].content = data[name];
