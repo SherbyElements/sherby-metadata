@@ -121,7 +121,7 @@ class SherbyMetadata extends LitElement {
 
       // Special case: title
       if (name === 'title') {
-        document.title = data[name];
+        document.title = data[name] || '';
         continue;
       }
 
@@ -172,9 +172,7 @@ class SherbyMetadata extends LitElement {
   _initializeMetaElements() {
     const documentMetaElements = document.querySelectorAll('meta');
     const metaElements = {};
-
-    // For each meta elements found in the document
-    documentMetaElements.forEach((metaElement) => {
+    const iterateOnMetaElement = (metaElement) => {
       // Get the name of the meta element
       const name = metaElement.name || metaElement.getAttribute('property');
 
@@ -182,7 +180,10 @@ class SherbyMetadata extends LitElement {
       if (name) {
         metaElements[name] = metaElement;
       }
-    });
+    };
+
+    // For each meta elements found in the document
+    documentMetaElements.forEach(iterateOnMetaElement);
 
     // Set the metaElements property
     this._metaElements = metaElements;
@@ -195,7 +196,7 @@ class SherbyMetadata extends LitElement {
   */
   _onMetadataEvent(event) {
     // Do we have a detail object?
-    if (event.detail && typeof event.detail === 'object') {
+    if (event.detail && typeof event.detail === 'object' && event.detail.constructor === Object) {
       this.data = event.detail;
     }
 
