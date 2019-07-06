@@ -6,7 +6,7 @@
   "author": "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>",
   "scripts": {
     "format": "eslint . --ext js,json,md --fix",
-    "lint:": "eslint . --ext js,json,md",
+    "lint": "eslint . --ext js,json,md",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },

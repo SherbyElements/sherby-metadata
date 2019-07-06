@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement } from 'lit-element';
 
 /**
 * `sherby-metadata` is a LitElement used to manage meta tags data for

@@ -7,6 +7,7 @@ module.exports = {
     assert: false,
     expect: false,
     fixture: false,
+    globalThis: false,
     sinon: false,
   },
 };
