@@ -57,10 +57,6 @@ class SherbyMetadata extends LitElement {
     };
   }
 
-  render() {
-    return html``;
-  }
-
   /**
   * Create the listener and  initialize the meta elements.
   * @constructor
