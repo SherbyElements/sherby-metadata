@@ -27,6 +27,8 @@ const createMeta = ({attributeName,attributeValue, content}) => {
   document.head.appendChild(meta);
 }
 
+const createSherbyMetadataFixtureWithData = (data) => fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+
 const createTestMetas = () => {
   const openGraphDescriptionContent = 'Old Open Graph description'
   const descriptionContent = 'Old description'
@@ -100,7 +102,7 @@ describe('sherby-metadata', () => {
       document.title = 'Old title'
 
       data = { title: 'Title'}
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure the title has been updated
       expect(document.title).to.equal('Title');
@@ -108,7 +110,7 @@ describe('sherby-metadata', () => {
 
     it('with a reset', async() => {
       data = { title: undefined }
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure the document title is now an empty string
       expect(document.title).to.equal('');
@@ -118,7 +120,7 @@ describe('sherby-metadata', () => {
   describe('should create meta elements', () => {
     it('which is a common meta element (name)', async () => {
       data = { 'description': 'Description' }
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure there is only two meta elements
       metaElements = document.querySelectorAll('meta');
@@ -138,7 +140,7 @@ describe('sherby-metadata', () => {
         'og:description': 'Description',
         'og:title': 'Title'
       }
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure there is only two meta elements
       metaElements = document.querySelectorAll('meta');
@@ -211,7 +213,7 @@ describe('sherby-metadata', () => {
       // Make sure there is no meta elements before the assignment
       expectNoElementForQuery('meta')
 
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure there is still no meta elements after the assignment
       expectNoElementForQuery('meta[name="description"]')
@@ -227,7 +229,7 @@ describe('sherby-metadata', () => {
 
     it('which is a common meta element (name)', async () => {
       data = { 'description': 'Description' }
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure there is still three meta elements
       metaElements = document.querySelectorAll('meta');
@@ -244,7 +246,7 @@ describe('sherby-metadata', () => {
 
     it('which is an Open Graph meta element (property)', async () => {
       data = { 'og:description': 'Description' }
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure there is still three meta elements
       metaElements = document.querySelectorAll('meta');
@@ -260,7 +262,7 @@ describe('sherby-metadata', () => {
     })
   })
 
-  describe('should delete existing meta elements if we provide a falsy value', async() => {
+  describe('should delete existing meta elements if we provide a falsy value', () => {
     beforeEach(createTestMetas)
 
     it('which is a common meta element (name)', async() => {
@@ -274,7 +276,7 @@ describe('sherby-metadata', () => {
       metaElements = document.querySelectorAll('meta');
       expect(metaElements.length).to.equal(3);
 
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure the meta element has been deleted
       metaElements = document.querySelectorAll('meta[name="description"]');
@@ -296,7 +298,7 @@ describe('sherby-metadata', () => {
       metaElements = document.querySelectorAll('meta');
       expect(metaElements.length).to.equal(3);
 
-      meta = await fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+      meta = await createSherbyMetadataFixtureWithData(data)
 
       // Make sure the meta element has been deleted
       metaElements = document.querySelectorAll('meta[property="og:description"]');
@@ -309,10 +311,12 @@ describe('sherby-metadata', () => {
   })
 
   describe('should support custom events', () => {
-    it('should update the data property if we launch a custom event with a valid detail value', async() => {
-      // Initialize the meta element
+    beforeEach(async () => {
+      // Initialize an empty sherby-metadata element
       meta = await fixture(html`<sherby-metadata></sherby-metadata>`);
+    })
 
+    it('should update the data property if we launch a custom event with a valid detail value', () => {
       // Empty object
       const emptyObject = {}
       dispatchSherbyMetadataEvent(emptyObject)
@@ -327,55 +331,24 @@ describe('sherby-metadata', () => {
       expect(meta.data).to.deep.equal(notEmptyObject)
     })
 
-    it('should not update the data property if we launch a custom event with an invalid detail value ', async() => {
-      const emptyObject = {}
+    it('should not update the data property if we launch a custom event with an invalid detail value ', () => {
+      const dispatchEventDataAndTest = (data) => {
+        dispatchSherbyMetadataEvent(data)
+        expect(meta.data).to.deep.equal({})
+      }
 
-      // Initialize the meta element
-      meta = await fixture(html`<sherby-metadata></sherby-metadata>`);
-
-      // Number
-      dispatchSherbyMetadataEvent(1)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // String
-      dispatchSherbyMetadataEvent('description')
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // Array
-      dispatchSherbyMetadataEvent(['description'])
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // Date
-      dispatchSherbyMetadataEvent(new Date())
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // RegExp
-      dispatchSherbyMetadataEvent(new RegExp())
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // NaN
-      dispatchSherbyMetadataEvent(NaN)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // Infinity
-      dispatchSherbyMetadataEvent(Infinity)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // undefined
-      dispatchSherbyMetadataEvent(undefined)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // null
-      dispatchSherbyMetadataEvent(null)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // this
-      dispatchSherbyMetadataEvent(this)
-      expect(meta.data).to.deep.equal(emptyObject)
-
-      // globalThis
-      dispatchSherbyMetadataEvent(globalThis)
-      expect(meta.data).to.deep.equal(emptyObject)
+      // Test with invalid values
+      dispatchEventDataAndTest('description')   // String
+      dispatchEventDataAndTest(1)               // Number
+      dispatchEventDataAndTest(Infinity)        // Infinity
+      dispatchEventDataAndTest(NaN)             // NaN
+      dispatchEventDataAndTest(['description']) // Array
+      dispatchEventDataAndTest(globalThis)      // globalThis
+      dispatchEventDataAndTest(new Date())      // Date
+      dispatchEventDataAndTest(new RegExp())    // RegExp
+      dispatchEventDataAndTest(null)            // null
+      dispatchEventDataAndTest(this)            // this
+      dispatchEventDataAndTest(undefined)       // undefined
     })
   })
 });
