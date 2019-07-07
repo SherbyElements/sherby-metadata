@@ -3,6 +3,7 @@ module.exports = {
   extends: 'eslint-config-udes/polymer-2-element',
 
   parserOptions: {
+    ecmaVersion: 2017,
     sourceType: 'module'
   },
 

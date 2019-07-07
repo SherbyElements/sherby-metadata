@@ -1,48 +1,41 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/SherbyElements/sherby-metadata)
 [![Build status](https://travis-ci.org/SherbyElements/sherby-metadata.svg?branch=master)](https://travis-ci.org/SherbyElements/sherby-metadata)
+[![codecov](https://codecov.io/gh/SherbyElements/sherby-metadata/branch/master/graph/badge.svg)](https://codecov.io/gh/SherbyElements/sherby-metadata)
 
 ## \<sherby-metadata\>
 
-`sherby-metadata` is a **Polymer 3** element used to manage meta tags data for 
-Search Engine Optimization (SEO). It will add, update and remove `<meta>` 
+`sherby-metadata` is a **LitElement** used to manage meta tags data for
+*Search Engine Optimization* (SEO). It will add, update and remove `<meta>`
 elements to the `<head>` section based on the JSON object passed to it.
 
 ## Installation
-As Polymer 3 use npm, you must use it to install this component:
-
 ```bash
 npm install @sherby/sherby-metadata
 ```
 
-For the **Polymer 2** version, use the `SherbyElements/sherby-metadata#^v1.0.0` inside your bower.json file.
-
-```bash
-bower install SherbyElements/sherby-metadata --save
-```
-
 ## Use
-To use this element, add the import to your shell component and include it
-in your component code.
+To use this element, import it in your shell component and add a `sherby-metadata` element
+in your component template.
 
 ```html
-<sherby-metadata data="[[data]]"></sherby-metadata>
+<sherby-metadata .data=${data}></sherby-metadata>
+
+<!-- Or alternatively if you want to dispatch events: -->
+<sherby-metadata></sherby-metadata>
 ```
 
-To update your meta tags data, you can update his data property in your shell
-component:
+To update the meta tags on your page, you can update the data property in your shell
+component or you can dispatch a `sherby-metadata` event:
 
 ```javascript
+// By updating the data property
 this.data = {
   description: 'This is the page description',
   keywords: 'these,are,keywords',
   title: 'This is the page title',
 };
-```
 
-Alternatively, after the `sherby-metadata` is include in your shell component,
-you can dispatch a `sherby-metadata` event:
-
-```javascript
+// By dispatching a custom event
 this.dispatchEvent(new CustomEvent('sherby-metadata', {
   detail: {
     description: 'This is the page description',
@@ -52,7 +45,14 @@ this.dispatchEvent(new CustomEvent('sherby-metadata', {
 }));
 ```
 
-This component support also the `OpenGraph` tags.
+This component support also the [OpenGraph](http://ogp.me/) tags:
+```javascript
+this.data = {
+  'og:description': 'This is the page description',
+  'og:keywords': 'these,are,keywords',
+  'og:title': 'This is the page title',
+};
+```
 
 ## Thanks
 Special thanks to [CaptainCodeman](https://github.com/CaptainCodeman) for his [app-metadata](https://github.com/CaptainCodeman/app-metadata) component that inspired me for this component.

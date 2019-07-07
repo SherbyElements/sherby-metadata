@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2019-07-07
+### Added
+- First release with LitElement.
+- Add more unit tests.
+- First version with 100% coverage with Codecov.
+
+## [2.0.0-rc.2] - 2018-05-11
+### Added
+- First version with Polymer 3.
+
 ## [1.0.1] - 2017-08-20
 ### Added
 - eslint configuration to lint JavaScript and JSON.
