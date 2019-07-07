@@ -58,6 +58,14 @@ class SherbyMetadata extends LitElement {
   }
 
   /**
+   * Render template in light DOM.
+   * @return {Element} This element.
+   */
+  createRenderRoot() {
+    return this;
+  }
+
+  /**
   * Create the listener and  initialize the meta elements.
   * @constructor
   */
@@ -72,6 +80,7 @@ class SherbyMetadata extends LitElement {
     // Metadata event listener
     this.__metadataEventListener = this._onMetadataEvent.bind(this);
 
+    // Get all valid meta elements on the page
     this._initializeMetaElements();
   }
 
@@ -96,7 +105,7 @@ class SherbyMetadata extends LitElement {
   /**
    * Update the DOM when the data changes.
    * @protected
-   * @param {Object} changedProperties Changed properties.
+   * @param {Map} changedProperties Changed properties.
    */
   updated(changedProperties) {
     super.updated(changedProperties);

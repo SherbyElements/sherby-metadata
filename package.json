@@ -3,10 +3,11 @@
   "flat": true,
   "version": "3.0.0",
   "description": "Manage meta tags for Search Engine Optimization (SEO)",
-  "author": "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>",
+  "author": "Benjamin Rancourt <Benjamin.Rancourt@USherbrooke.ca>",
   "scripts": {
     "format": "eslint . --ext js,json,md --fix",
     "lint": "eslint . --ext js,json,md",
+    "report-coverage": "codecov",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },
@@ -42,6 +43,7 @@
     "@open-wc/testing": "^1.0.6",
     "@open-wc/testing-karma": "^2.0.11",
     "@webcomponents/webcomponentsjs": "^2.2.10",
+    "codecov": "^3.5.0",
     "eslint-config-udes": "^0.2.1",
     "karma": "^4.1.0",
     "mocha": "^6.1.4",

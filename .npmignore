@@ -1,8 +1,11 @@
 .editorconfig
 .eslintrc.js
+.gitignore
 .travis.yml
 .vscode
-demo
+CHANGELOG.md
+coverage
 index.html
+karma.conf.js
 node_modules
 test
