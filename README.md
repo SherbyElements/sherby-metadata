@@ -1,5 +1,6 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/SherbyElements/sherby-metadata)
 [![Build status](https://travis-ci.org/SherbyElements/sherby-metadata.svg?branch=master)](https://travis-ci.org/SherbyElements/sherby-metadata)
+[![codecov](https://codecov.io/gh/SherbyElements/sherby-metadata/branch/master/graph/badge.svg)](https://codecov.io/gh/SherbyElements/sherby-metadata)
 
 ## \<sherby-metadata\>
 
