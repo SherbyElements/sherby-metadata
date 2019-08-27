@@ -141,13 +141,14 @@ describe('sherby-metadata', () => {
     it('which is an Open Graph meta element (property)', async () => {
       data = {
         'og:description': 'Description',
+        'og:locale:alternate': ['en_CA', 'en_CA', 'fr_CA'],
         'og:title': 'Title',
       };
       meta = await createSherbyMetadataFixtureWithData(data);
 
-      // Make sure there is only two meta elements
+      // Make sure there is only four meta elements
       metaElements = document.querySelectorAll('meta');
-      expect(metaElements.length).to.equal(2);
+      expect(metaElements.length).to.equal(4);
 
       // There should be only one with a property og:description
       metaElements = document.querySelectorAll('meta[property="og:description"]');
@@ -164,6 +165,18 @@ describe('sherby-metadata', () => {
       // and his content should be "Title"
       metaElement = metaElements[0];
       expect(metaElement.content).to.equal('Title');
+
+      // There should be only two with a property og:locale:alternate
+      metaElements = document.querySelectorAll('meta[property="og:description"]');
+      expect(metaElements.length).to.equal(2);
+
+      // and his content should be "fr_CA" or "en_CA"
+      metaElements.forEach((metaElement) => {
+        expect(metaElement.content).to.be.include(['fr_CA', 'en_CA']);
+      });
+
+      // and they should not be equal to each other
+      expect(metaElements[0]).to.not.equal(metaElements[1]);
     });
   });
 

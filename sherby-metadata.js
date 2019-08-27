@@ -133,8 +133,17 @@ class SherbyMetadata extends LitElement {
       // Do we have this meta element?
       if (Object.prototype.hasOwnProperty.call(this._metaElements, name)) {
         // Update the content if it is defined
-        if (data[name]) {
+        if (typeof data[name] === 'string') {
           this._metaElements[name].content = data[name];
+        } else if (Array.isArray(data[name])) {
+          console.log('Ne');
+          // [x,y] > [x]
+          // [x] = [x]
+          // [x] < [x,y]
+          // [x] != x
+          // x != [x]
+          // x != []
+          // [x] != []
         } else {
           // Remove the meta element from the document
           document.head.removeChild(this._metaElements[name]);
@@ -149,6 +158,10 @@ class SherbyMetadata extends LitElement {
       if (!data[name]) {
         continue;
       }
+
+      // []
+      // [x] => x
+      // [x, y]
 
       // Create a new meta element
       const meta = document.createElement('meta');
