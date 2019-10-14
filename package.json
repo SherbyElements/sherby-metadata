@@ -1,7 +1,7 @@
 {
   "name": "@sherby/sherby-metadata",
   "flat": true,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Manage meta tags for Search Engine Optimization (SEO)",
   "author": "Benjamin Rancourt <Benjamin.Rancourt@USherbrooke.ca>",
   "scripts": {
@@ -9,7 +9,8 @@
     "lint": "eslint . --ext js,json,md",
     "report-coverage": "codecov",
     "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false"
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:compatibility": "karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "keywords": [
     "description",
@@ -37,17 +38,17 @@
   "license": "MIT",
   "homepage": "https://github.com/SherbyElements/sherby-metadata",
   "dependencies": {
-    "lit-element": "^2.2.0"
+    "lit-element": "^2.2.1"
   },
   "devDependencies": {
-    "@open-wc/testing": "^1.0.6",
-    "@open-wc/testing-karma": "^2.0.11",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "codecov": "^3.5.0",
+    "@open-wc/testing": "^2.3.5",
+    "@open-wc/testing-karma": "^3.1.39",
+    "@webcomponents/webcomponentsjs": "^2.3.0",
+    "codecov": "^3.6.1",
+    "deepmerge": "^4.1.1",
     "eslint-config-udes": "^0.2.1",
-    "karma": "^4.1.0",
-    "mocha": "^6.1.4",
-    "sinon": "^7.3.2",
-    "webpack-merge": "^4.2.1"
+    "karma": "^4.3.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0"
   }
 }
