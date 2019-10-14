@@ -1,17 +1,25 @@
 {
-  "name": "@sherby/sherby-metadata",
-  "flat": true,
-  "version": "3.0.1",
-  "description": "Manage meta tags for Search Engine Optimization (SEO)",
   "author": "Benjamin Rancourt <Benjamin.Rancourt@USherbrooke.ca>",
-  "scripts": {
-    "format": "eslint . --ext js,json,md --fix",
-    "lint": "eslint . --ext js,json,md",
-    "report-coverage": "codecov",
-    "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:compatibility": "karma start --compatibility all --auto-watch=true --single-run=false"
+  "bugs": {
+    "url": "https://github.com/SherbyElements/sherby-metadata/issues"
   },
+  "dependencies": {
+    "lit-element": "^2.2.1"
+  },
+  "description": "Manage meta tags for Search Engine Optimization (SEO)",
+  "devDependencies": {
+    "@open-wc/testing": "^2.3.5",
+    "@open-wc/testing-karma": "^3.1.39",
+    "@webcomponents/webcomponentsjs": "^2.3.0",
+    "codecov": "^3.6.1",
+    "deepmerge": "^4.1.1",
+    "eslint-config-udes": "^0.2.1",
+    "karma": "^4.3.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0"
+  },
+  "flat": true,
+  "homepage": "https://github.com/SherbyElements/sherby-metadata",
   "keywords": [
     "description",
     "keywords",
@@ -27,28 +35,21 @@
     "title",
     "webcomponents"
   ],
+  "license": "MIT",
   "main": "sherby-metadata.js",
+  "name": "@sherby/sherby-metadata",
   "repository": {
     "type": "git",
     "url": "https://github.com/SherbyElements/sherby-metadata.git"
   },
-  "bugs": {
-    "url": "https://github.com/SherbyElements/sherby-metadata/issues"
+  "scripts": {
+    "format": "eslint . --ext js,json,md --fix",
+    "lint": "eslint . --ext js,json,md",
+    "npm:publish": "npm publish --access public",
+    "report-coverage": "codecov",
+    "test": "karma start --coverage",
+    "test:compatibility": "karma start --compatibility all --auto-watch=true --single-run=false",
+    "test:watch": "karma start --auto-watch=true --single-run=false"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/SherbyElements/sherby-metadata",
-  "dependencies": {
-    "lit-element": "^2.2.1"
-  },
-  "devDependencies": {
-    "@open-wc/testing": "^2.3.5",
-    "@open-wc/testing-karma": "^3.1.39",
-    "@webcomponents/webcomponentsjs": "^2.3.0",
-    "codecov": "^3.6.1",
-    "deepmerge": "^4.1.1",
-    "eslint-config-udes": "^0.2.1",
-    "karma": "^4.3.0",
-    "mocha": "^6.2.1",
-    "sinon": "^7.5.0"
-  }
+  "version": "3.0.2"
 }
