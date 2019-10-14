@@ -37,7 +37,7 @@ import { LitElement } from 'lit-element';
 * @group SherbyElements
 * @demo demo/index.html
 */
-class SherbyMetadata extends LitElement {
+export class SherbyMetadata extends LitElement {
   /**
   * Return the properties.
   * @static
