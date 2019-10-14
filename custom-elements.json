@@ -1,0 +1,21 @@
+{
+  "tags": [
+    {
+      "attributes": [
+        {
+          "label": "data"
+        }
+      ],
+      "description": "Manage meta tags for Search Engine Optimization (SEO)",
+      "events": [],
+      "label": "sherby-metadata",
+      "properties": [
+        {
+          "label": "data"
+        }
+      ],
+      "slots": []
+    }
+  ],
+  "version": 2
+}
