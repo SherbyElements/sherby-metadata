@@ -1,56 +1,56 @@
 import { LitElement } from 'lit-element';
 
 /**
-* `sherby-metadata` is a LitElement used to manage meta tags data for
-* Search Engine Optimization (SEO). It will add, update and remove `<meta>`
-* elements to the `<head>` section based on the JSON object passed to it.
-*
-* To use this element, add the import to your shell component and include it
-* in your component code.
-*
-*     <sherby-metadata .data=${data}></sherby-metadata>
-*
-* To update your meta tags data, you can update his data property in your shell
-* component:
-*
-*   this.data = {
-*     title: 'This is the page title',
-*     description: 'This is the page description',
-*     keywords: 'these,are,keywords'
-*   };
-*
-* Alternatively, after the `sherby-metadata` is include in your shell component,
-* you can dispatch a `sherby-metadata` event:
-*
-*   this.dispatchEvent(new CustomEvent('sherby-metadata', {
-*     detail: {
-*       description: 'This is the page description',
-*       keywords: 'these,are,keywords',
-*       title: 'This is the page title',
-*     }
-*   }));
-*
-* This component support also the `OpenGraph` tags.
-*
-* @customElement
-* @extends {LitElement}
-* @group SherbyElements
-* @demo demo/index.html
-*/
+ * `sherby-metadata` is a LitElement used to manage meta tags data for
+ * Search Engine Optimization (SEO). It will add, update and remove `<meta>`
+ * elements to the `<head>` section based on the JSON object passed to it.
+ *
+ * To use this element, add the import to your shell component and include it
+ * in your component code.
+ *
+ *     <sherby-metadata .data=${data}></sherby-metadata>
+ *
+ * To update your meta tags data, you can update his data property in your shell
+ * component:
+ *
+ *   this.data = {
+ *     title: 'This is the page title',
+ *     description: 'This is the page description',
+ *     keywords: 'these,are,keywords'
+ *   };
+ *
+ * Alternatively, after the `sherby-metadata` is include in your shell component,
+ * you can dispatch a `sherby-metadata` event:
+ *
+ *   this.dispatchEvent(new CustomEvent('sherby-metadata', {
+ *     detail: {
+ *       description: 'This is the page description',
+ *       keywords: 'these,are,keywords',
+ *       title: 'This is the page title',
+ *     }
+ *   }));
+ *
+ * This component support also the `OpenGraph` tags.
+ *
+ * @customElement
+ * @extends {LitElement}
+ * @group SherbyElements
+ * @demo demo/index.html
+ */
 export class SherbyMetadata extends LitElement {
   /**
-  * Return the properties.
-  * @static
-  * @return {Object} Properties.
-  */
+   * Return the properties.
+   * @static
+   * @return {Object} Properties.
+   */
   static get properties() {
     return {
       /**
-      * An object that contains the meta data currently set on the page.
-      * The object keys will be used for the `name` of the <meta> tag
-      * and the value the `content`.
-      * @public
-      */
+       * An object that contains the meta data currently set on the page.
+       * The object keys will be used for the `name` of the <meta> tag
+       * and the value the `content`.
+       * @public
+       */
       data: {
         type: Object,
       },
@@ -66,9 +66,9 @@ export class SherbyMetadata extends LitElement {
   }
 
   /**
-  * Create the listener and  initialize the meta elements.
-  * @constructor
-  */
+   * Create the listener and  initialize the meta elements.
+   * @constructor
+   */
   constructor() {
     super();
 
@@ -85,18 +85,18 @@ export class SherbyMetadata extends LitElement {
   }
 
   /**
-  * Add an event listener to the body element after the next render.
-  * @public
-  */
+   * Add an event listener to the body element after the next render.
+   * @public
+   */
   connectedCallback() {
     super.connectedCallback();
     window.addEventListener('sherby-metadata', this.__metadataEventListener);
   }
 
   /**
-  * Remove the event listener from the body element.
-  * @public
-  */
+   * Remove the event listener from the body element.
+   * @public
+   */
   disconnectedCallback() {
     super.disconnectedCallback();
     window.removeEventListener('sherby-metadata', this.__metadataEventListener);
@@ -171,9 +171,9 @@ export class SherbyMetadata extends LitElement {
   }
 
   /**
-  * Initialize the meta elements.
-  * @protected
-  */
+   * Initialize the meta elements.
+   * @protected
+   */
   _initializeMetaElements() {
     const documentMetaElements = document.querySelectorAll('meta');
     const metaElements = {};
@@ -195,10 +195,10 @@ export class SherbyMetadata extends LitElement {
   }
 
   /**
-  * Update the data when we receive an metadata event.
-  * @protected
-  * @param {Event} event Event.
-  */
+   * Update the data when we receive an metadata event.
+   * @protected
+   * @param {Event} event Event.
+   */
   _onMetadataEvent(event) {
     // Do we have a detail object?
     if (event.detail && typeof event.detail === 'object' && event.detail.constructor === Object) {

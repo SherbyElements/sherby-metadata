@@ -7,7 +7,7 @@ let meta;
 let metaElements;
 let metaElement;
 
-const dispatchSherbyMetadataEvent = (detail)=> {
+const dispatchSherbyMetadataEvent = (detail) => {
   const event = new CustomEvent('sherby-metadata', {
     bubbles: true,
     detail: detail,
@@ -30,7 +30,7 @@ const createMeta = ({ attributeName, attributeValue, content }) => {
   document.head.appendChild(meta);
 };
 
-const createSherbyMetadataFixtureWithData = data => fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
+const createSherbyMetadataFixtureWithData = (data) => fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
 
 const createTestMetas = () => {
   const openGraphDescriptionContent = 'Old Open Graph description';
@@ -88,7 +88,7 @@ const createTestMetas = () => {
 
 describe('sherby-metadata', () => {
   beforeEach(() => {
-    const removeMetaElement = metaElement => metaElement.remove();
+    const removeMetaElement = (metaElement) => metaElement.remove();
 
     // Delete all meta elements
     metaElements = document.querySelectorAll('meta');
@@ -122,7 +122,7 @@ describe('sherby-metadata', () => {
 
   describe('should create meta elements', () => {
     it('which is a common meta element (name)', async () => {
-      data = { 'description': 'Description' };
+      data = { description: 'Description' };
       meta = await createSherbyMetadataFixtureWithData(data);
 
       // Make sure there is only two meta elements
@@ -168,9 +168,9 @@ describe('sherby-metadata', () => {
   });
 
   describe('should not create meta elements', () => {
-    it('if the properties are not its own', async ()=> {
+    it('if the properties are not its own', async () => {
       data = {
-        'description': 'Description from data',
+        description: 'Description from data',
       };
 
       // eslint-disable-next-line require-jsdoc
@@ -232,7 +232,7 @@ describe('sherby-metadata', () => {
     beforeEach(createTestMetas);
 
     it('which is a common meta element (name)', async () => {
-      data = { 'description': 'Description' };
+      data = { description: 'Description' };
       meta = await createSherbyMetadataFixtureWithData(data);
 
       // Make sure there is still three meta elements
