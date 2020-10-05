@@ -9,11 +9,13 @@ module.exports = (config) => {
         nodeResolve: true,
       },
 
-      files: [{
-        pattern: 'test/**/*.test.js',
-        type: 'module',
-      }],
-    })
+      files: [
+        {
+          pattern: 'test/**/*.test.js',
+          type: 'module',
+        },
+      ],
+    }),
   );
 
   return config;
