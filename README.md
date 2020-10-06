@@ -1,6 +1,12 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/SherbyElements/sherby-metadata)
-[![Build status](https://travis-ci.org/SherbyElements/sherby-metadata.svg?branch=master)](https://travis-ci.org/SherbyElements/sherby-metadata)
-[![codecov](https://codecov.io/gh/SherbyElements/sherby-metadata/branch/master/graph/badge.svg)](https://codecov.io/gh/SherbyElements/sherby-metadata)
+[![npm](https://img.shields.io/npm/v/@sherby/sherby-metadata?logo=npm)](https://www.npmjs.com/package/@sherby/sherby-metadata)
+[![GitHub](https://img.shields.io/github/v/release/SherbyElements/sherby-metadata?label=GitHub&logo=github&sort=semver)](https://github.com/SherbyElements/sherby-metadata/releases)
+[![webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/SherbyElements/sherby-metadata)
+[![MIT License](https://img.shields.io/npm/l/@sherby/sherby-metadata)](https://github.com/SherbyElements/sherby-metadata/blob/master/LICENSE.md)
+[![Number of downloads](https://img.shields.io/npm/dt/@sherby/sherby-metadata)](https://npm-stat.com/charts.html?package=%40sherby%2Fsherby-metadata)
+[![BundlePhobia](https://img.shields.io/bundlephobia/minzip/@sherby/sherby-metadata)](https://bundlephobia.com/result?p=@sherby/sherby-metadata)
+[![Travis CI](https://travis-ci.org/SherbyElements/sherby-metadata.svg?branch=master)](https://travis-ci.org/SherbyElements/sherby-metadata)
+[![Codecov](https://codecov.io/gh/SherbyElements/sherby-metadata/branch/master/graph/badge.svg)](https://codecov.io/gh/SherbyElements/sherby-metadata)
+[![Codacy](https://api.codacy.com/project/badge/Grade/840f4666b46643ebb15d844527e57bc4)](https://app.codacy.com/gh/SherbyElements/sherby-metadata)
 
 # \<sherby-metadata\>
 

@@ -4,6 +4,8 @@
   "description": "Manage meta tags for Search Engine Optimization (SEO)",
   "keywords": [
     "description",
+    "html",
+    "javascript",
     "keywords",
     "lit",
     "lit-element",
@@ -12,9 +14,14 @@
     "meta-tags",
     "metadata",
     "open-graph",
+    "optimization",
+    "pwa",
+    "search",
     "seo",
     "sherby",
+    "spa",
     "title",
+    "webcomponent",
     "webcomponents"
   ],
   "homepage": "https://github.com/SherbyElements/sherby-metadata",

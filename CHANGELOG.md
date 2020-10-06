@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Chores
 
+- Add more badges and keywords
 - Update dependencies
 - Remove `.npmignore`
 - Add some files to `.gitignore` and `.npmignore`.
