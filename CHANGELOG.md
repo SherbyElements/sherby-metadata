@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## Unreleased
 
-## [3.1.0] - 2021-06-07
+## [3.1.0](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.1.0) - 2021-06-07
 
 ### Features
 
@@ -22,21 +22,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove `.npmignore`
 - Add some files to `.gitignore` and `.npmignore`.
 
-## [3.0.2] - 2019-10-14
+## [3.0.2](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.0.2) - 2019-10-14
 
 ### Chores
 
 - Sort JSON files with Visual Studio Code.
 - Add first version of custom-elements.json to try the Open WC catalog.
 
-## [3.0.1] - 2019-10-14
+## [3.0.1](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.0.1) - 2019-10-14
 
 ### Chores
 
 - Update dependencies.
 - Add package-lock.json to gitignore.
 
-## [3.0.0] - 2019-07-07
+## [3.0.0](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.0.0) - 2019-07-07
 
 ### Added
 
@@ -44,13 +44,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add more unit tests.
 - First version with 100% coverage with Codecov.
 
-## [2.0.0-rc.2] - 2018-05-11
+## [2.0.0-rc.2](https://github.com/SherbyElements/sherby-metadata/releases/tag/2.0.0-rc.2) - 2018-05-11
 
 ### Added
 
 - First version with Polymer 3.
 
-## [1.0.1] - 2017-08-20
+## [1.0.1](https://github.com/SherbyElements/sherby-metadata/releases/tag/1.0.1) - 2017-08-20
 
 ### Added
 
