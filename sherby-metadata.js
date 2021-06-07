@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 
 /**
  * `sherby-metadata` is a LitElement used to manage meta tags data for
@@ -105,7 +105,7 @@ export class SherbyMetadata extends LitElement {
   /**
    * Update the DOM when the data changes.
    * @protected
-   * @param {Map} changedProperties Changed properties.
+   * @param {PropertyValues} changedProperties Changed properties.
    */
   updated(changedProperties) {
     super.updated(changedProperties);
@@ -127,6 +127,9 @@ export class SherbyMetadata extends LitElement {
       // Special case: title
       if (name === 'title') {
         document.title = data[name] || '';
+        continue;
+      } else if (name === 'canonical') {
+        this._handleCanonical(data[name] || '');
         continue;
       }
 
@@ -167,6 +170,31 @@ export class SherbyMetadata extends LitElement {
 
       // Keep track of the inserted meta tag
       this._metaElements[name] = meta;
+    }
+  }
+
+  _handleCanonical(href) {
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      if (href) {
+        // Update its href
+        canonicalLink.href = href;
+      } else {
+        // Delete the canonical link from the document
+        document.head.removeChild(canonicalLink);
+      }
+    } else {
+      // Create a new link element
+      canonicalLink = document.createElement('link');
+
+      // Set the corresponding attribute
+      canonicalLink.setAttribute('rel', 'canonical');
+
+      // Add the href
+      canonicalLink.href = href;
+
+      // Add the meta tag to the document
+      document.head.appendChild(canonicalLink);
     }
   }
 
