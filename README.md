@@ -70,6 +70,7 @@ this.data = {
 Special thanks to [CaptainCodeman](https://github.com/CaptainCodeman) for his [app-metadata](https://github.com/CaptainCodeman/app-metadata) component that inspired me for this component.
 
 ## Development on WSL
+
 ```bash
 # To use Chrome on Windows
 export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
