@@ -7,8 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.1.0] - 2021-06-07
+
+### Features
+
+- Add support for `<link href="..." rel="canonical">`
+
 ### Chores
 
+- Use the latest version of Lit
+- Update Node.js version in Travis
 - Add more badges and keywords
 - Update dependencies
 - Remove `.npmignore`
