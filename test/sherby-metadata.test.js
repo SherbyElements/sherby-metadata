@@ -106,11 +106,11 @@ describe('sherby-metadata', () => {
     const removeMetaElement = (metaElement) => metaElement.remove();
 
     // Delete all meta elements
-    metaElements = document.querySelectorAll('meta');
+    metaElements = document.querySelectorAll('meta,link');
     metaElements.forEach(removeMetaElement);
 
     // Make sure all meta elements have been deleted
-    metaElements = document.querySelectorAll('meta');
+    metaElements = document.querySelectorAll('meta,link');
     expect(metaElements.length).to.equal(0);
   });
 
