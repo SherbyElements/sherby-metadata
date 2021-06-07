@@ -11,8 +11,8 @@ install:
   - npm install
 language: node_js
 node_js:
+  - '16'
   - '14'
-  - '12'
 script:
   - xvfb-run npm run test
   - npm run report-coverage
