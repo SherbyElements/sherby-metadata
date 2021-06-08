@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Chores
 
 - Use the latest version of Lit
-- Update Node.js version in Travis
+- Remove Travis
 - Add more badges and keywords
 - Update dependencies
 - Remove `.npmignore`
