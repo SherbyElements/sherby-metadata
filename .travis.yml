@@ -16,5 +16,5 @@ node_js:
 os:
   - linux
 script:
-  - xvfb-run npm run test
+  - xvfb-run npm test
   - npm run report-coverage

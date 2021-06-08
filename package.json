@@ -46,9 +46,8 @@
     "lint:eslint": "eslint --ignore-path .gitignore . --ext js,json,md",
     "lint:prettier": "prettier --ignore-path .gitignore --check '**/*.{js,json,md,yml}'",
     "report-coverage": "codecov",
-    "test": "karma start --coverage",
-    "test:compatibility": "karma start --compatibility all --auto-watch=true --single-run=false",
-    "test:watch": "karma start --auto-watch=true --single-run=false"
+    "test": "web-test-runner",
+    "test:watch": "npm test -- --watch"
   },
   "prettier": "prettier-config-udes",
   "dependencies": {
@@ -57,6 +56,8 @@
   "devDependencies": {
     "@open-wc/testing": "^2.5.33",
     "@open-wc/testing-karma": "^4.0.9",
+    "@web/test-runner": "^0.13.5",
+    "@web/test-runner-chrome": "^0.10.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "babel-eslint": "^10.1.0",
     "codecov": "^3.8.2",
