@@ -110,7 +110,7 @@ export class SherbyMetadata extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    /* istanbul ignore if */
+    /* c8 ignore next 3 */
     if (!changedProperties.has('data')) {
       return;
     }
