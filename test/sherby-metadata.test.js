@@ -4,6 +4,7 @@ import '../sherby-metadata.js';
 // Shared variables that will be usefull for our tests
 let data;
 let meta;
+let link;
 let metaElements;
 let metaElement;
 
@@ -28,6 +29,20 @@ const createMeta = ({ attributeName, attributeValue, content }) => {
 
   // Add the meta tag to the document
   document.head.appendChild(meta);
+};
+
+const createLink = ({ attributeName, attributeValue, href }) => {
+  // Create a new meta element
+  link = document.createElement('link');
+
+  // Set the corresponding attribute
+  link.setAttribute(attributeName, attributeValue);
+
+  // Add the content
+  link.href = href;
+
+  // Add the meta tag to the document
+  document.head.appendChild(link);
 };
 
 const createSherbyMetadataFixtureWithData = (data) => fixture(html`<sherby-metadata .data=${data}></sherby-metadata>`);
@@ -91,11 +106,11 @@ describe('sherby-metadata', () => {
     const removeMetaElement = (metaElement) => metaElement.remove();
 
     // Delete all meta elements
-    metaElements = document.querySelectorAll('meta');
+    metaElements = document.querySelectorAll('meta,link');
     metaElements.forEach(removeMetaElement);
 
     // Make sure all meta elements have been deleted
-    metaElements = document.querySelectorAll('meta');
+    metaElements = document.querySelectorAll('meta,link');
     expect(metaElements.length).to.equal(0);
   });
 
@@ -117,6 +132,71 @@ describe('sherby-metadata', () => {
 
       // Make sure the document title is now an empty string
       expect(document.title).to.equal('');
+    });
+  });
+
+  describe('should support canonical link', () => {
+    it('with an create', async () => {
+      data = { canonical: 'https://lit.dev/docs/components/shadow-dom/' };
+      meta = await createSherbyMetadataFixtureWithData(data);
+
+      // There should be only one with a name description
+      metaElements = document.querySelectorAll('link[rel="canonical"]');
+      expect(metaElements.length).to.equal(1);
+
+      // and his content should be the same URL as previous
+      metaElement = metaElements[0];
+      expect(metaElement.href).to.equal(data.canonical);
+    });
+
+    it('with an update', async () => {
+      createLink({
+        attributeName: 'rel',
+        attributeValue: 'canonical',
+        href: 'https://lit.dev/docs/',
+      });
+
+      // There should be only one with a name description
+      metaElements = document.querySelectorAll('link[rel="canonical"]');
+      expect(metaElements.length).to.equal(1);
+
+      // and his content should be the same URL as previous
+      metaElement = metaElements[0];
+      expect(metaElement.href).to.equal('https://lit.dev/docs/');
+
+      data = { canonical: 'https://lit.dev/docs/components/shadow-dom/' };
+      meta = await createSherbyMetadataFixtureWithData(data);
+
+      // There should be only one with a name description
+      metaElements = document.querySelectorAll('link[rel="canonical"]');
+      expect(metaElements.length).to.equal(1);
+
+      // and his content should be the same URL as previous
+      metaElement = metaElements[0];
+      expect(metaElement.href).to.equal(data.canonical);
+    });
+
+    it('with a delete', async () => {
+      createLink({
+        attributeName: 'rel',
+        attributeValue: 'canonical',
+        href: 'https://lit.dev/docs/',
+      });
+
+      // There should be only one with a name description
+      metaElements = document.querySelectorAll('link[rel="canonical"]');
+      expect(metaElements.length).to.equal(1);
+
+      // and his content should be the same URL as previous
+      metaElement = metaElements[0];
+      expect(metaElement.href).to.equal('https://lit.dev/docs/');
+
+      data = { canonical: false };
+      meta = await createSherbyMetadataFixtureWithData(data);
+
+      // There should be only one with a name description
+      metaElements = document.querySelectorAll('link[rel="canonical"]');
+      expect(metaElements.length).to.equal(0);
     });
   });
 

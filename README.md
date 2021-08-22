@@ -69,6 +69,13 @@ this.data = {
 
 Special thanks to [CaptainCodeman](https://github.com/CaptainCodeman) for his [app-metadata](https://github.com/CaptainCodeman/app-metadata) component that inspired me for this component.
 
+## Development on WSL
+
+```bash
+# To use Chrome on Windows
+export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+```
+
 ## Publish
 
 Increment the `version` defined in the `package.json` file and run the command below to publish the module in the
