@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## [3.1.0](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.1.0) - 2021-06-07
+## [3.1.0](https://github.com/SherbyElements/sherby-metadata/releases/tag/3.1.0) - 2021-08-22
 
 ### Features
 
